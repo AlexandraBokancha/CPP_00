@@ -10,16 +10,14 @@ int main()
     while (1)
     {
         std::cout << "Enter your command: ";
-        std::getline(std::cin, MyBook.cmd);
-        if (!MyBook.cmd.compare("EXIT"))
+        if (!std::getline(std::cin, MyBook.cmd) || !MyBook.cmd.compare("EXIT") )
             break;
         else if (!MyBook.cmd.compare("ADD"))
             MyBook.add_contact();
         else if (!MyBook.cmd.compare("SEARCH"))
             MyBook.search_contact();
         else
-            std::cout << "Wrong command, try again.\n";
-        //std::cout << "My contact : " << MyBook.contacts->first_name << std::endl;
+            std::cout << "Wrong command, try again.\n";    
     }
     return (0);
 }
